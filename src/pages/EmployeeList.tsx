@@ -1,189 +1,39 @@
 import DataTable from "react-data-table-component";
-import {useMemo, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
+import {useSelector} from "react-redux";
+import {RootState} from "../store";
+import {tableColumns} from "../utils/tableColumns.ts";
 
-export default function EmployeeList() {
+export default function OldEmployeeList() {
     const [filterText, setFilterText] = useState('');
     const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-    const filteredItems = [
-        {
-            name: 'John Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Janes Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Jansdcdcd Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Janedgdg Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Jangdgfe Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Janedggd Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Janedgdg Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        },
-        {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }, {
-            name: 'Janehyry Doe',
-            age: 32,
-            address: '10 Downing Street',
-            tags: ['employee', 'manager'],
-        }
-    ].filter(
-        item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
-    );
 
-    const columns = [
-        {
-            name: 'Name',
-            selector: row => row.name,
-            sortable: true,
-        },
-        {
-            name: 'Age',
-            selector: row => row.age,
-            sortable: true,
-            right: true,
-        },
-        {
-            name: 'Address',
-            selector: row => row.address,
-            sortable: true,
-            right: true,
-        },
-        {
-            name: 'Tags',
-            selector: row => row.tags,
-            sortable: true,
-            right: true,
-        },
-    ];
+    const allEmployees = useSelector((state: RootState) => state.employee)
+
+    const [employees, setEmployees] = useState([{
+        firstName: "Nebel",
+        lastName: "Mass",
+        dateOfBirth: "30/03/2000",
+        startDate: "30/03/2023",
+        city: "Brazzaville",
+        state: "Congo",
+        street: "40 rue Nkounka Batéké, Bacongo",
+        department: "Brazzaville",
+        zipCode: "00242"
+    }])
+
+    useEffect(() => {
+        setEmployees(allEmployees)
+        if (filterText) {
+            setEmployees(
+                allEmployees.filter(
+                    item => item.firstName && item.firstName.toLowerCase().includes(filterText.toLowerCase())
+                )
+            )
+        }
+    }, [allEmployees, filterText]);
 
     const subHeaderComponentMemo = useMemo(() => {
-        const handleClear = () => {
-            if (filterText) {
-                setResetPaginationToggle(!resetPaginationToggle);
-                setFilterText('');
-            }
-        };
-
-        // return (
-        //     <FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} />
-        // );
         return <input
             style={{border: "1px solid #ccc", borderRadius: "5px", padding: "5px 10px", marginBottom: "10px"}}
             type={"search"}
@@ -191,22 +41,21 @@ export default function EmployeeList() {
             value={filterText}
             placeholder={"Search by name"}
         />
-
-
-    }, [filterText, resetPaginationToggle]);
+    }, [filterText]);
 
     return (
         <div className="container mx-auto my-5">
             <DataTable
                 title="Employee List"
-                columns={columns}
-                data={filteredItems}
+                columns={tableColumns}
+                data={employees}
                 pagination
                 paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
                 subHeader
                 subHeaderComponent={subHeaderComponentMemo}
                 persistTableHead
             />
+
         </div>
     );
 }
