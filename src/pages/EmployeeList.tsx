@@ -6,7 +6,7 @@ import {tableColumns} from "../utils/tableColumns.ts";
 
 export default function OldEmployeeList() {
     const [filterText, setFilterText] = useState('');
-    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+    const [resetPaginationToggle] = useState(false);
 
     const allEmployees = useSelector((state: RootState) => state.employee)
 
