@@ -1026,7 +1026,7 @@ balanced-match@^1.0.0:
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-better-docs@^2.7.2:
+better-docs@^2.7.3:
   version "2.7.3"
   resolved "https://registry.yarnpkg.com/better-docs/-/better-docs-2.7.3.tgz#bdeec1b24514bc22562af2a277c2cf527abbe726"
   integrity sha512-OEk9e7RQUQbo1DmVo0mdsALZ+mT0SwIen7/DGnN4xKNktXKgz1j7+KQ2pObNHHVSFGu8YMQW/Ig1v6eiTkdnbw==
@@ -2647,16 +2647,16 @@ react-router@6.21.0:
   dependencies:
     "@remix-run/router" "1.14.0"
 
-react-sweet-modal@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/react-sweet-modal/-/react-sweet-modal-0.0.1.tgz"
-  integrity sha512-4EOB4iHufFZkeVuSzjyjGqvv3MIqoMLqhiBG9wntt2gFgkEIoARxwTvWgWu8HmwfStXmuaXbYQRzVDpUEW7qUQ==
+react-sweet-modal@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-sweet-modal/-/react-sweet-modal-0.0.2.tgz#3029ceb3009284fa99abb471f7a07c6ad3fea301"
+  integrity sha512-fKBttzN8KlzFCCmaMP3QenHDGJzdnOMdbrnWowhOEi8PfmyuXDsjW0m06No6epr8Ygulo+s/qop7dJVGLSxhsA==
   dependencies:
-    better-docs "^2.7.2"
+    better-docs "^2.7.3"
     jsdoc "^4.0.2"
     react "^18.2.0"
     react-dom "^18.2.0"
-    sass "^1.69.3"
+    sass "^1.69.5"
     vite-plugin-css-injected-by-js "^3.3.0"
 
 react@^18.2.0:
@@ -2791,9 +2791,9 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-sass@^1.69.3:
+sass@^1.69.5:
   version "1.69.5"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.69.5.tgz"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.69.5.tgz#23e18d1c757a35f2e52cc81871060b9ad653dfde"
   integrity sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
