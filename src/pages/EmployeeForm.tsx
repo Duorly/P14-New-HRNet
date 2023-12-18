@@ -3,7 +3,8 @@ import {useState} from "react";
 import {addEmployee} from "../store/features/employee.ts";
 import {Modal} from "react-sweet-modal";
 import InputField from "../components/InputField.tsx";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import checked from  "./../assets/checked.png"
 
 export default function EmployeeForm() {
     const navigate = useNavigate();
@@ -39,13 +40,13 @@ export default function EmployeeForm() {
     };
 
     const redirect = () => {
-       setIsModalOpen(false)
-       navigate("/employees");
+        setIsModalOpen(false)
+        navigate("/employees");
     };
 
     return (
         <div>
-            <section className=" py-1 bg-green-50">
+            <section className="py-1 bg-green-50">
                 <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
                     <div
                         className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-green-100 border-0">
@@ -56,7 +57,7 @@ export default function EmployeeForm() {
                                 </h6>
                             </div>
                         </div>
-                        <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+                        <div className="flex-auto px-4 lg:px-10 py-5 pt-0">
                             <form onSubmit={handleSubmit}>
                                 <h6 className="text-green-400 text-sm mt-3 mb-6 font-bold uppercase">
                                     User Information
@@ -173,21 +174,25 @@ export default function EmployeeForm() {
                                             </select>
                                         </div>
                                     </div>
-                                </div>
 
-                                <button
-                                    className="bg-green-800 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                                    type="submit"
-                                >
-                                    Add employee
-                                </button>
+                                    <button
+                                        className="bg-green-800 text-white active:bg-pink-600 font-bold uppercase text-xs
+                                        p-4 m-4 rounded shadow hover:shadow-md outline-none focus:outline-none
+                                        ease-linear transition-all duration-150 w-full"
+                                        type="submit"
+                                    >
+                                        Add employee
+                                    </button>
+                                </div>
                             </form>
 
                             <Modal
                                 show={isModalOpen}
                                 close={redirect}
                                 title="Employé ajouté avec succès"
-                                content={<h1>Hello World</h1>}
+                                content={<div className="flex w-full items-center justify-center">
+                                    <img src={checked} className="w-36" alt="checked"/>
+                                </div>}
                             />
                         </div>
                     </div>

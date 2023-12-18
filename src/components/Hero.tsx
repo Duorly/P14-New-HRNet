@@ -9,11 +9,11 @@ export default function Hero() {
             <p className="text-xl text-[Roboto] font-semibold">Your portal to manage employees</p>
             <div className="flex justify-center space-x-8">
                 <Link to={`new-employee`}
-                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-xl mt-4">Add
+                      className="bg-green-600 hover:bg-green-800 text-white font-bold py-3 px-5 rounded-xl mt-4">Add
                     employee
                 </Link>
                 <Link to={`employees`}
-                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-xl mt-4">View
+                      className="bg-green-600 hover:bg-green-800 text-white font-bold py-3 px-5 rounded-xl mt-4">View
                     employees
                 </Link>
             </div>
