@@ -3,8 +3,11 @@ import {useState} from "react";
 import {addEmployee} from "../store/features/employee.ts";
 import {Modal} from "react-sweet-modal";
 import InputField from "../components/InputField.tsx";
+import { useNavigate } from "react-router-dom";
 
 export default function EmployeeForm() {
+    const navigate = useNavigate();
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const dispatch = useDispatch();
@@ -33,6 +36,11 @@ export default function EmployeeForm() {
         e.preventDefault();
         dispatch(addEmployee(formData));
         setIsModalOpen(true);
+    };
+
+    const redirect = () => {
+       setIsModalOpen(false)
+       navigate("/employees");
     };
 
     return (
@@ -177,7 +185,7 @@ export default function EmployeeForm() {
 
                             <Modal
                                 show={isModalOpen}
-                                close={() => setIsModalOpen(false)}
+                                close={redirect}
                                 title="Employé ajouté avec succès"
                                 content={<h1>Hello World</h1>}
                             />
